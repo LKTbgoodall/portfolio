@@ -1,4 +1,25 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+/* Suppression de l'import Google Fonts, il est maintenant dans le <head> du HTML */
+/* --- NOUVEAU : Filtre de Projets (projets.html) --- */
+/* ... (autres styles du filtre) ... */
+
+.project-item.is-hidden {
+  /* On se concentre uniquement sur l'opacité et l'échelle */
+  opacity: 0;
+  transform: scale(0.95);
+  /* Utiliser une position absolue pour retirer l'élément du flux
+     et éviter qu'il ne prenne de la place pendant l'animation */
+  position: absolute;
+  pointer-events: none; /* Rendre l'élément non cliquable */
+
+  /* Mettre à jour la transition pour ne pas transitionner le height/margin/padding
+     sauf si c'est absolument nécessaire pour le layout */
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* IMPORTANT : 
+   Il faudra ajouter un position: relative; sur le conteneur #project-list
+   dans projets.html ou dans le CSS pour que les éléments absolus s'y référencent.
+*/
 
 body {
   font-family: "Poppins", sans-serif;
@@ -58,16 +79,26 @@ main {
   margin-bottom: 1rem;
 }
 
+/* --- Animations --- */
+
 .fade-in-on-scroll {
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+
+  /* AMÉLIORATION : 
+    Utilise la variable CSS --delay si elle est fournie, sinon 0s.
+    Cela remplace le style="transition-delay: 100ms" en ligne.
+  */
+  transition-delay: var(--delay, 0s);
 }
 
 .fade-in-on-scroll.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* --- Section Parcours (a-propos.html) --- */
 
 .parcours-item {
   background-color: var(--bs-card-bg);
@@ -83,4 +114,29 @@ main {
 
 .parcours-item .card-subtitle {
   font-weight: 600;
+}
+
+/* --- NOUVEAU : Filtre de Projets (projets.html) --- */
+
+.filter-buttons .btn.active {
+  background-color: var(--bs-primary);
+  color: var(--bs-white);
+}
+
+.project-item {
+  /* Animation pour le filtre (fondu) */
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.project-item.is-hidden {
+  /* Utiliser opacity et transform pour l'animation */
+  opacity: 0;
+  transform: scale(0.95);
+  /* On cache l'élément pour le layout après l'animation */
+  transition: opacity 0.4s ease, transform 0.4s ease, height 0.4s 0.4s,
+    padding 0.4s 0.4s, margin 0.4s 0.4s;
+  height: 0;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
 }
