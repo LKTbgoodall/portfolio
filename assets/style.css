@@ -140,3 +140,8 @@ main {
   margin: 0;
   overflow: hidden;
 }
+
+.text-bg-sql {
+  background-color: #6f42c1 !important; /* Violet */
+  color: white !important;
+}
