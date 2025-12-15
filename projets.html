@@ -45,6 +45,21 @@
         <button type="button" class="btn btn-primary m-1" data-filter="all">
           Tous
         </button>
+
+        <button
+          type="button"
+          class="btn btn-outline-primary m-1"
+          data-filter="personal"
+        >
+          Perso
+        </button>
+        <button
+          type="button"
+          class="btn btn-outline-primary m-1"
+          data-filter="school"
+        >
+          Scolaire
+        </button>
         <button
           type="button"
           class="btn btn-outline-primary m-1"
@@ -71,7 +86,7 @@
       <div class="row g-4" id="project-list">
         <div
           class="col-md-6 col-lg-4 fade-in-on-scroll project-item"
-          data-tags="html-css js"
+          data-tags="html-css js personal"
           style="--delay: 200ms"
         >
           <div class="card project-card h-100">
@@ -81,9 +96,16 @@
               alt="Aperçu du projet GTA RP"
             />
             <div class="card-body d-flex flex-column">
-              <h5 class="card-title fw-bold">
-                Gestionnaire Recrutement (GTA RP)
-              </h5>
+              <div
+                class="d-flex justify-content-between align-items-start mb-2"
+              >
+                <h5 class="card-title fw-bold mb-0">Gestionnaire GTA RP</h5>
+                <span
+                  class="badge border border-success text-success bg-transparent"
+                  >Perso</span
+                >
+              </div>
+
               <p class="card-text">
                 Mon premier projet concret pour gérer les recrutements de police
                 sur un jeu.
@@ -94,12 +116,88 @@
                 <span class="badge text-bg-primary">CSS</span>
               </div>
               <div class="mt-3">
-                <a href="#" class="btn btn-outline-light me-2">
-                  <i class="bi bi-github me-1"></i> Code
-                </a>
-                <a href="#" class="btn btn-primary">
-                  <i class="bi bi-box-arrow-up-right me-1"></i> Démo
-                </a>
+                <a href="#" class="btn btn-outline-light me-2"
+                  ><i class="bi bi-github me-1"></i> Code</a
+                >
+                <a href="#" class="btn btn-primary"
+                  ><i class="bi bi-box-arrow-up-right me-1"></i> Démo</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="col-md-6 col-lg-4 fade-in-on-scroll project-item"
+          data-tags="api js school"
+          style="--delay: 300ms"
+        >
+          <div class="card project-card h-100">
+            <img
+              src="img/site2.webp"
+              class="project-card-img"
+              alt="Aperçu du projet API Pokémon"
+            />
+            <div class="card-body d-flex flex-column">
+              <div
+                class="d-flex justify-content-between align-items-start mb-2"
+              >
+                <h5 class="card-title fw-bold mb-0">Projet API Pokémon</h5>
+                <span class="badge border border-info text-info bg-transparent"
+                  >Scolaire</span
+                >
+              </div>
+              <p class="card-text">
+                Projet d'école pour consommer une API publique (PokéAPI).
+              </p>
+              <div class="mt-auto">
+                <span class="badge text-bg-warning">JavaScript</span>
+                <span class="badge text-bg-info">API Rest</span>
+              </div>
+              <div class="mt-3">
+                <a href="#" class="btn btn-outline-light me-2"
+                  ><i class="bi bi-github me-1"></i> Code</a
+                >
+                <a href="#" class="btn btn-primary"
+                  ><i class="bi bi-box-arrow-up-right me-1"></i> Démo</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="col-md-6 col-lg-4 fade-in-on-scroll project-item"
+          data-tags="html-css sql school"
+          style="--delay: 400ms"
+        >
+          <div class="card project-card h-100">
+            <img
+              src="img/site3.webp"
+              class="project-card-img"
+              alt="Aperçu du Projet Gestion Scolaire"
+            />
+            <div class="card-body d-flex flex-column">
+              <div
+                class="d-flex justify-content-between align-items-start mb-2"
+              >
+                <h5 class="card-title fw-bold mb-0">Gestion Scolaire</h5>
+                <span class="badge border border-info text-info bg-transparent"
+                  >Scolaire</span
+                >
+              </div>
+              <p class="card-text">
+                Conception d'une base de données SQL pour gérer un établissement
+                scolaire.
+              </p>
+              <div class="mt-auto">
+                <span class="badge text-bg-dark">SQL</span>
+                <span class="badge text-bg-primary">Merise</span>
+              </div>
+              <div class="mt-3">
+                <a href="#" class="btn btn-outline-light me-2"
+                  ><i class="bi bi-github me-1"></i> Code</a
+                >
               </div>
             </div>
           </div>
