@@ -46,7 +46,7 @@ const projectsData = {
   tr: {
     title: "Recoder la commande 'tr' (Linux)",
     image: "img/tr_project.webp",
-    link: "https://github.com/LKTbgoodall",
+    link: "https://github.com/LKTbgoodall/2025_tr",
     isCode: true,
     description: `
         <p class="lead text-white">Projet scolaire consistant à recréer une commande système Linux (tr) en langage C. L'objectif : comprendre comment l'ordinateur gère la mémoire.</p>
@@ -85,7 +85,7 @@ const projectsData = {
   maze: {
     title: "Résolution de Labyrinthe",
     image: "img/maze.webp",
-    link: "https://github.com/LKTbgoodall",
+    link: "https://github.com/LKTbgoodall/2025_maze",
     isCode: true,
     description: `
         <p class="lead text-white">Développement d'un algorithme capable de trouver tout seul la sortie d'un labyrinthe (fichier texte transformé en carte 2D).</p>
@@ -125,7 +125,7 @@ const projectsData = {
   pokemon: {
     title: "Pokédex & Team Builder",
     image: "img/site2.webp",
-    link: "#",
+    link: "https://github.com/LKTbgoodall/Pokemon",
     isCode: true,
     description: `
         <p class="lead text-white">Un site web dynamique qui permet de consulter les stats des Pokémon et de créer son équipe, en utilisant des données en temps réel.</p>
@@ -273,10 +273,12 @@ function handleActiveNav() {
 }
 
 /* --- MODAL LOGIC (MISE À JOUR POUR GÉRER 2 BOUTONS) --- */
+/* --- MODAL LOGIC (Finale : 2 boutons + Gestion des liens grisés) --- */
 function openModal(projectId) {
   const project = projectsData[projectId];
   if (!project) return;
 
+  // 1. Remplir Titre, Description et Image
   document.getElementById("modalTitle").textContent = project.title;
   document.getElementById("modalDescription").innerHTML = project.description;
 
@@ -288,25 +290,20 @@ function openModal(projectId) {
     img.classList.add("d-none");
   }
 
-  // --- GESTION DES BOUTONS DU BAS ---
-
-  // 1. Bouton Principal (Lien Site ou Code unique)
+  // --- GESTION DES BOUTONS ---
   const btnSite = document.getElementById("modalLink");
 
-  // 2. Bouton Secondaire (Code/Repo) - On essaie de le récupérer ou on le crée
+  // 2. Création dynamique du bouton "Code" (GitHub) s'il n'existe pas encore
   let btnRepo = document.getElementById("modalRepoLink");
   if (!btnRepo) {
-    // Création dynamique si n'existe pas
     btnRepo = document.createElement("a");
     btnRepo.id = "modalRepoLink";
-    btnRepo.className = "btn btn-outline-light rounded-pill px-4 me-2"; // Style 'Outline'
+    btnRepo.className = "btn btn-outline-light rounded-pill px-4 me-2";
     btnRepo.target = "_blank";
     btnRepo.innerHTML = '<i class="bi bi-github me-2"></i>Voir le Code';
-    // Insérer avant le bouton principal
+    // On l'insère juste avant le bouton principal
     btnSite.parentNode.insertBefore(btnRepo, btnSite);
   }
-
-  // --- LOGIQUE D'AFFICHAGE ---
 
   // CAS A : Afficher le bouton "Code" secondaire ? (Si propriété 'repo' existe)
   if (project.repo) {
@@ -316,22 +313,32 @@ function openModal(projectId) {
     btnRepo.classList.add("d-none");
   }
 
-  // CAS B : Configurer le bouton Principal
+  // CAS B : Configurer le bouton Principal (Site ou Projet)
   if (project.link) {
-    btnSite.href = project.link;
+    // On nettoie le bouton (on enlève le gris/désactivé des précédents clics)
+    btnSite.className = "btn rounded-pill px-4";
+    btnSite.classList.remove("d-none", "disabled", "btn-secondary");
+    btnSite.removeAttribute("aria-disabled");
 
-    // Si on a DEJA affiché le bouton Repo, le bouton principal devient forcément "Voir le Site"
-    if (project.repo) {
-      btnSite.innerHTML =
-        '<i class="bi bi-box-arrow-up-right me-2"></i>Voir le Site';
-      btnSite.className = "btn btn-primary rounded-pill px-4"; // Style plein
+    // --- LOGIQUE DE GRISAGE ---
+    if (project.link === "#") {
+      // Si le lien est # -> On grise
+      btnSite.classList.add("btn-secondary", "disabled");
+      btnSite.setAttribute("aria-disabled", "true");
+      btnSite.removeAttribute("href"); // On enlève le lien pour pas cliquer
+      btnSite.innerHTML = '<i class="bi bi-cone-striped me-2"></i>En cours';
     } else {
-      // Sinon, comportement classique (Code OU Site selon isCode)
-      btnSite.innerHTML = project.isCode
-        ? '<i class="bi bi-github me-2"></i>Voir le Code'
-        : '<i class="bi bi-box-arrow-up-right me-2"></i>Voir le Site';
+      btnSite.href = project.link;
+      btnSite.classList.add("btn-primary");
+      if (project.repo) {
+        btnSite.innerHTML =
+          '<i class="bi bi-box-arrow-up-right me-2"></i>Voir le Site';
+      } else {
+        btnSite.innerHTML = project.isCode
+          ? '<i class="bi bi-github me-2"></i>Voir le Code'
+          : '<i class="bi bi-box-arrow-up-right me-2"></i>Voir le Site';
+      }
     }
-    btnSite.classList.remove("d-none");
   } else {
     btnSite.classList.add("d-none");
   }
