@@ -1,19 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr" data-bs-theme="dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Découvrez une sélection de mes projets de développement, incluant des applications web, des API, et des exercices de code."
-    />
-    <title>Goodall Bastien - Projets</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <title>Projets | Bastien Goodall</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -23,324 +13,232 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
     <link rel="stylesheet" href="assets/style.css" />
-
-    <style>
-      .modal-header {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      }
-      .modal-footer {
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-      }
-      .project-detail-img {
-        max-height: 300px;
-        object-fit: cover;
-        width: 100%;
-        border-radius: 8px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-      }
-      /* Badges personnalisés */
-      .text-bg-c {
-        background-color: #5c6bc0 !important;
-        color: white;
-      }
-      .text-bg-unix {
-        background-color: #37474f !important;
-        color: white;
-      }
-      .text-bg-sql {
-        background-color: #00acc1 !important;
-        color: white;
-      }
-      .text-bg-outils {
-        background-color: #546e7a !important;
-        color: white;
-      }
-    </style>
   </head>
   <body>
     <div id="nav-placeholder"></div>
 
     <main class="container my-5 py-5">
       <div class="text-center mb-5 fade-in-on-scroll">
-        <h1 class="display-4 fw-bold">Mes Projets</h1>
-        <p class="lead text-body-secondary">
-          Voici une sélection de mes réalisations. Filtrez-les par type ou
-          technologie.
+        <h1 class="display-4 fw-bold">
+          Mes <span class="text-gradient">Projets</span>
+        </h1>
+        <p class="lead text-muted mx-auto" style="max-width: 700px">
+          Voici ce que j'ai créé pendant mes études et sur mon temps libre.
         </p>
       </div>
 
       <div
         id="project-filter-buttons"
-        class="filter-buttons text-center mb-4 fade-in-on-scroll"
-        role="group"
-        aria-label="Filtrer les projets par catégorie"
-        style="--delay: 100ms"
+        class="filter-buttons d-flex justify-content-center flex-wrap mb-5 fade-in-on-scroll"
       >
+        <button type="button" class="btn active" data-filter="all">Tous</button>
         <button
           type="button"
-          class="btn btn-primary m-1 active"
-          data-filter="all"
+          class="btn btn-outline-light"
+          data-filter="html-css"
         >
-          Tous
+          HTML/CSS
         </button>
         <button
           type="button"
-          class="btn btn-outline-primary m-1"
+          class="btn btn-outline-light"
           data-filter="c-lang"
         >
           Langage C
         </button>
-        <button
-          type="button"
-          class="btn btn-outline-primary m-1"
-          data-filter="personal"
-        >
-          Perso
+        <button type="button" class="btn btn-outline-light" data-filter="perso">
+          Personnel
         </button>
-        <button
-          type="button"
-          class="btn btn-outline-primary m-1"
-          data-filter="school"
-        >
+        <button type="button" class="btn btn-outline-light" data-filter="sco">
           Scolaire
-        </button>
-        <button
-          type="button"
-          class="btn btn-outline-primary m-1"
-          data-filter="js"
-        >
-          JavaScript
-        </button>
-        <button
-          type="button"
-          class="btn btn-outline-primary m-1"
-          data-filter="html-css"
-        >
-          HTML/CSS
         </button>
       </div>
 
       <div class="row g-4" id="project-list">
         <div
-          class="col-md-6 col-lg-4 fade-in-on-scroll project-item"
-          data-tags="html-css js personal"
-          style="--delay: 200ms"
+          class="col-lg-4 col-md-6 fade-in-on-scroll project-item"
+          data-tags="html-css perso"
         >
-          <div class="card project-card h-100">
-            <img
-              src="img/site1.webp"
-              class="project-card-img"
-              alt="Aperçu du projet GTA RP"
-            />
-            <div class="card-body d-flex flex-column">
-              <div
-                class="d-flex justify-content-between align-items-start mb-2"
-              >
-                <h5 class="card-title fw-bold mb-0">
-                  Gestionnaire de Recrutement
-                </h5>
-                <span
-                  class="badge border border-success text-success bg-transparent"
-                  >Perso</span
+          <div
+            class="card project-card h-100 border-0 pointer-event"
+            onclick="openModal('gta')"
+            style="cursor: pointer"
+          >
+            <div class="project-img-wrapper">
+              <img src="img/site1.webp" alt="Projet RH" />
+              <div class="position-absolute top-0 end-0 m-3">
+                <span class="badge bg-success text-white border border-white"
+                  >Personnel</span
                 >
               </div>
-              <p class="card-text">
-                Outil d'automatisation pour gagner du temps sur les tâches
-                répétitives de gestion des recrutements (GTA RP).
+            </div>
+            <div class="card-body p-4 d-flex flex-column">
+              <h5 class="fw-bold mb-2">Site de Recrutement Automatisé</h5>
+              <p class="text-muted small mb-4 flex-grow-1">
+                Création d'un site web complet pour gérer le recrutement plus
+                simplement avec des automatisations en JavaScript.
               </p>
-              <div class="mt-auto">
+              <div>
                 <span class="badge text-bg-warning">JavaScript</span>
                 <span class="badge text-bg-primary">HTML/CSS</span>
               </div>
-              <div class="mt-3 d-flex gap-2">
-                <button
-                  onclick="openModal('gta')"
-                  class="btn btn-primary flex-grow-1"
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="col-lg-4 col-md-6 fade-in-on-scroll project-item"
+          data-tags="c-lang sco"
+        >
+          <div
+            class="card project-card h-100 border-0 pointer-event"
+            onclick="openModal('tr')"
+            style="cursor: pointer"
+          >
+            <div class="project-img-wrapper">
+              <img src="img/tr_project.webp" alt="Projet C" />
+              <div class="position-absolute top-0 end-0 m-3">
+                <span class="badge bg-info text-dark border border-white"
+                  >Scolaire</span
                 >
-                  <i class="bi bi-eye me-1"></i> Détails
-                </button>
-                <a
-                  href="https://github.com/LKTbgoodall/projet_reponse_formulaire"
-                  class="btn btn-outline-light"
-                  target="_blank"
-                  title="Voir le code"
-                >
-                  <i class="bi bi-github"></i>
-                </a>
+              </div>
+            </div>
+            <div class="card-body p-4 d-flex flex-column">
+              <h5 class="fw-bold mb-2">Recréation d'une commande en C</h5>
+              <p class="text-muted small mb-4 flex-grow-1">
+                Recréation de la commande 'tr' d'Unix en C, sans utiliser les
+                bibliothèques standard en utilisant uniquement le terminal.
+              </p>
+              <div>
+                <span class="badge text-bg-primary">Langage C</span>
+                <span class="badge text-bg-danger">Shell</span>
               </div>
             </div>
           </div>
         </div>
 
         <div
-          class="col-md-6 col-lg-4 fade-in-on-scroll project-item"
-          data-tags="c-lang school"
-          style="--delay: 250ms"
+          class="col-lg-4 col-md-6 fade-in-on-scroll project-item"
+          data-tags="c-lang sco"
         >
-          <div class="card project-card h-100">
-            <img
-              src="img/tr_project.webp"
-              class="project-card-img"
-              alt="Terminal montrant le projet TR"
-            />
-            <div class="card-body d-flex flex-column">
-              <div
-                class="d-flex justify-content-between align-items-start mb-2"
-              >
-                <h5 class="card-title fw-bold mb-0">Programme Tr</h5>
-                <span class="badge border border-info text-info bg-transparent"
+          <div
+            class="card project-card h-100 border-0 pointer-event"
+            onclick="openModal('maze')"
+            style="cursor: pointer"
+          >
+            <div class="project-img-wrapper">
+              <img src="img/maze.webp" alt="Maze Solver" />
+              <div class="position-absolute top-0 end-0 m-3">
+                <span class="badge bg-info text-dark border border-white"
                   >Scolaire</span
                 >
               </div>
-              <p class="card-text">
-                Recréation complète de la commande système tr en Langage C. Un
-                programme qui permet de changer des caractères depuis le
-                terminal linux.
+            </div>
+            <div class="card-body p-4 d-flex flex-column">
+              <h5 class="fw-bold mb-2">Résolveur de Labyrinthes</h5>
+              <p class="text-muted small mb-4 flex-grow-1">
+                Création d'un programme en C qui résout des Labyrinthes à partir
+                d'un fichier texte possédant leur représentation grâce a la
+                méthode pledge (main gauche).
               </p>
-              <div class="mt-auto">
-                <span class="badge text-bg-c">Langage C</span>
-                <span class="badge text-bg-unix">Unix</span>
-              </div>
-              <div class="mt-3 d-flex gap-2">
-                <button
-                  onclick="openModal('tr')"
-                  class="btn btn-primary flex-grow-1"
-                >
-                  <i class="bi bi-eye me-1"></i> Détails
-                </button>
-                <a href="#" class="btn btn-outline-light" title="Voir le code">
-                  <i class="bi bi-github"></i>
-                </a>
+              <div>
+                <span class="badge text-bg-primary">Langage C</span>
+                <span class="badge text-bg-danger">Shell</span>
               </div>
             </div>
           </div>
         </div>
 
         <div
-          class="col-md-6 col-lg-4 fade-in-on-scroll project-item"
-          data-tags="c-lang school"
-          style="--delay: 300ms"
+          class="col-lg-4 col-md-6 fade-in-on-scroll project-item"
+          data-tags="html-css sco"
         >
-          <div class="card project-card h-100">
-            <img
-              src="img/maze.webp"
-              class="project-card-img"
-              alt="Aperçu du projet Maze"
-            />
-            <div class="card-body d-flex flex-column">
-              <div
-                class="d-flex justify-content-between align-items-start mb-2"
-              >
-                <h5 class="card-title fw-bold mb-0">Maze Solver</h5>
-                <span class="badge border border-info text-info bg-transparent"
+          <div
+            class="card project-card h-100 border-0 pointer-event"
+            onclick="openModal('pokemon')"
+            style="cursor: pointer"
+          >
+            <div class="project-img-wrapper">
+              <img src="img/site2.webp" alt="Projet API" />
+              <div class="position-absolute top-0 end-0 m-3">
+                <span class="badge bg-info text-dark border border-white"
                   >Scolaire</span
                 >
-              </div>
-              <p class="card-text">
-                Résolution de labyrinthes. Gestion de mémoire manuelle et
-                pathfinding optimisé.
-              </p>
-              <div class="mt-auto">
-                <span class="badge text-bg-c">Langage C</span>
-                <span class="badge text-bg-unix">Linux</span>
-              </div>
-              <div class="mt-3 d-flex gap-2">
-                <button
-                  onclick="openModal('maze')"
-                  class="btn btn-primary flex-grow-1"
-                >
-                  <i class="bi bi-eye me-1"></i> Détails
-                </button>
-                <a href="#" class="btn btn-outline-light" title="Voir le code">
-                  <i class="bi bi-github"></i>
-                </a>
               </div>
             </div>
-          </div>
-        </div>
-
-        <div
-          class="col-md-6 col-lg-4 fade-in-on-scroll project-item"
-          data-tags="api js school"
-          style="--delay: 350ms"
-        >
-          <div class="card project-card h-100">
-            <img
-              src="img/site2.webp"
-              class="project-card-img"
-              alt="Aperçu du projet API Pokémon"
-            />
-            <div class="card-body d-flex flex-column">
-              <div
-                class="d-flex justify-content-between align-items-start mb-2"
-              >
-                <h5 class="card-title fw-bold mb-0">Projet API Pokémon</h5>
-                <span class="badge border border-info text-info bg-transparent"
-                  >Scolaire</span
-                >
-              </div>
-              <p class="card-text">
-                Site web utilisant l'API publique Tyradex pour la recherche de
-                Pokémon et la création d'équipes.
+            <div class="card-body p-4 d-flex flex-column">
+              <h5 class="fw-bold mb-2">Site avec l'API Pokémon</h5>
+              <p class="text-muted small mb-4 flex-grow-1">
+                Création d'un site web utilisant une API publique de pokémon
+                pour afficher les pokémons et leurs informations. Ajout de
+                fonctionnalités de recherche et de filtrage.
               </p>
-              <div class="mt-auto">
-                <span class="badge text-bg-warning">JavaScript</span>
+              <div>
                 <span class="badge text-bg-primary">HTML/CSS</span>
-                <span class="badge text-bg-info">API</span>
-              </div>
-              <div class="mt-3 d-flex gap-2">
-                <button
-                  onclick="openModal('pokemon')"
-                  class="btn btn-primary flex-grow-1"
-                >
-                  <i class="bi bi-eye me-1"></i> Détails
-                </button>
-                <a href="#" class="btn btn-outline-light" title="Voir le code">
-                  <i class="bi bi-github"></i>
-                </a>
+                <span class="badge text-bg-warning">JS / API</span>
               </div>
             </div>
           </div>
         </div>
 
         <div
-          class="col-md-6 col-lg-4 fade-in-on-scroll project-item"
-          data-tags="html-css sql school"
-          style="--delay: 400ms"
+          class="col-lg-4 col-md-6 fade-in-on-scroll project-item"
+          data-tags="sco"
         >
-          <div class="card project-card h-100">
-            <img
-              src="img/site3.webp"
-              class="project-card-img"
-              alt="Aperçu du Projet Gestion Scolaire"
-            />
-            <div class="card-body d-flex flex-column">
-              <div
-                class="d-flex justify-content-between align-items-start mb-2"
-              >
-                <h5 class="card-title fw-bold mb-0">Gestion Scolaire</h5>
-                <span class="badge border border-info text-info bg-transparent"
+          <div
+            class="card project-card h-100 border-0 pointer-event"
+            onclick="openModal('sql')"
+            style="cursor: pointer"
+          >
+            <div class="project-img-wrapper">
+              <img src="img/site3.webp" alt="Projet SQL" />
+              <div class="position-absolute top-0 end-0 m-3">
+                <span class="badge bg-info text-dark border border-white"
                   >Scolaire</span
                 >
               </div>
-              <p class="card-text">
-                Conception d'une base de données SQL complète pour gérer un
-                établissement scolaire.
+            </div>
+            <div class="card-body p-4 d-flex flex-column">
+              <h5 class="fw-bold mb-2">Base de Données Scolaire</h5>
+              <p class="text-muted small mb-4 flex-grow-1">
+                Création d'une base de données complète pour gérer les infos
+                d'une école à la manière de la base de donnée de pronote.
               </p>
-              <div class="mt-auto">
+              <div>
                 <span class="badge text-bg-sql">SQL</span>
-                <span class="badge text-bg-outils">DBeaver</span>
+                <span class="badge text-bg-secondary">Merise</span>
               </div>
-              <div class="mt-3 d-flex gap-2">
-                <button
-                  onclick="openModal('sql')"
-                  class="btn btn-primary flex-grow-1"
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="col-lg-4 col-md-6 fade-in-on-scroll project-item"
+          data-tags="html-css perso"
+        >
+          <div
+            class="card project-card h-100 border-0 pointer-event"
+            onclick="openModal('cafet')"
+            style="cursor: pointer"
+          >
+            <div class="project-img-wrapper">
+              <img src="img/cafet.webp" alt="Cafet App" />
+              <div class="position-absolute top-0 end-0 m-3">
+                <span class="badge bg-success text-white border border-white"
+                  >Personnel</span
                 >
-                  <i class="bi bi-eye me-1"></i> Détails
-                </button>
-                <a href="#" class="btn btn-outline-light" title="Voir le code">
-                  <i class="bi bi-github"></i>
-                </a>
+              </div>
+            </div>
+            <div class="card-body p-4 d-flex flex-column">
+              <h5 class="fw-bold mb-2">Site pour une Cafétéria</h5>
+              <p class="text-muted small mb-4 flex-grow-1">
+                Création d'un site web complet pour une Cafétéria scolaire, un
+                membre de ma famille ayant eu besoin de ce site pour gérer les
+                commandes et les menus.
+              </p>
+              <div>
+                <span class="badge text-bg-info">React</span>
+                <span class="badge text-bg-success">Supabase</span>
               </div>
             </div>
           </div>
@@ -354,39 +252,47 @@
       <div
         class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable"
       >
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-4 fw-bold" id="modalTitle">
-              Titre du projet
+        <div class="modal-content border-0">
+          <div
+            class="modal-header border-bottom border-secondary border-opacity-25"
+          >
+            <h1 class="modal-title fs-4 fw-bold text-white" id="modalTitle">
+              Titre
             </h1>
             <button
               type="button"
-              class="btn-close"
+              class="btn-close btn-close-white"
               data-bs-dismiss="modal"
-              aria-label="Fermer"
+              aria-label="Close"
             ></button>
           </div>
-          <div class="modal-body">
+          <div class="modal-body p-4">
             <img
               id="modalImage"
               src=""
-              alt="Image projet"
-              class="project-detail-img mb-4 d-none"
+              alt="Projet"
+              class="img-fluid rounded-3 mb-4 shadow-lg border border-secondary border-opacity-25 d-none w-100"
+              style="max-height: 400px; object-fit: cover"
             />
-
-            <div id="modalDescription"></div>
+            <div id="modalDescription" class="text-light"></div>
           </div>
-          <div class="modal-footer">
+          <div
+            class="modal-footer border-top border-secondary border-opacity-25"
+          >
             <button
               type="button"
-              class="btn btn-secondary"
+              class="btn btn-outline-light rounded-pill px-4"
               data-bs-dismiss="modal"
             >
               Fermer
             </button>
-            <a href="#" id="modalLink" class="btn btn-primary" target="_blank">
-              <i class="bi bi-box-arrow-up-right me-1"></i> Voir le code
-            </a>
+            <a
+              href="#"
+              id="modalLink"
+              class="btn btn-primary rounded-pill px-4"
+              target="_blank"
+              >Voir le projet</a
+            >
           </div>
         </div>
       </div>
@@ -394,277 +300,5 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/script.js"></script>
-
-    <script>
-      // Données de tes projets
-      const projectsData = {
-        gta: {
-          title: "Gestionnaire de Recrutement SAPA",
-          image: "img/site1.webp",
-          link: "https://lktbgoodall.github.io/projet_reponse_formulaire/",
-          description: `
-                  <p class="lead text-body-secondary">Une interface web spécialisée conçue pour optimiser le processus de recrutement de la communauté roleplay <strong>San Andreas Metropolitan Police Academy</strong>.</p>
-                  <p>Je m'occupais de gérer des recrutements pour la police où j'étais le directeur. J'ai donc créé ce site pour automatiser la génération de réponses pour Discord.</p>
-                  <hr>
-                  <h5 class="fw-bold text-white"><i class="bi bi-gear-fill me-2 text-primary"></i>Fonctionnalités</h5>
-                  <ul>
-                      <li><strong>Réponses Dynamiques :</strong> Formatage automatique (gras, spoilers) pour Discord.</li>
-                      <li><strong>Système de Refus :</strong> Sélection de motifs (Mineur, IA, Motivation) avec génération de message.</li>
-                      <li><strong>Persistance :</strong> Sauvegarde des données de l'utilisateur (nom, grade) dans le navigateur.</li>
-                  </ul>
-                  <div class="mt-3">
-                      <span class="badge text-bg-warning">JavaScript</span>
-                      <span class="badge text-bg-primary">HTML/CSS</span>
-                      <span class="badge text-bg-secondary">Regex</span>
-                  </div>
-              `,
-        },
-
-        tr: {
-          title: "Réimplémentation Commande TR (C)",
-          image: "img/tr_project.webp",
-          link: "https://github.com/TON_PSEUDO/TON_REPO_TR",
-          description: `
-            <div class="mb-5">
-              <h4 class="text-white h5 mb-3"><i class="bi bi-terminal me-2 text-info"></i>Concept</h4>
-              <p class="text-muted-custom">
-                Développement d'un clone de l'utilitaire Unix <strong>tr</strong>. Ce programme permet de manipuler du texte (remplacement ou suppression de caractères) directement depuis l'entrée standard.
-              </p>
-              <div class="alert alert-dark border-danger d-flex align-items-center" role="alert">
-                <i class="bi bi-exclamation-octagon-fill text-danger me-2"></i>
-                <div>
-                  <strong>Environnement Strict :</strong> 
-                  Développement 100% Terminal Linux (sans IDE type VS Code). Interdiction totale de la LibC standard. J'ai dû recréer mes propres outils.
-                </div>
-              </div>
-            </div>
-            
-            <div class="mb-5">
-              <h4 class="text-white h5 mb-3"><i class="bi bi-cpu me-2 text-info"></i>Compétences Clés</h4>
-              <div class="d-flex flex-column gap-3">
-                <div class="p-3 border border-secondary border-opacity-10 rounded bg-black bg-opacity-25">
-                    <strong class="text-white d-block mb-1"><i class="bi bi-bricks text-danger me-2"></i>Réécriture de la LibC</strong>
-                    <span class="text-muted-custom text-small">Recréation manuelle des fonctions essentielles : <code>strlen</code>, <code>strcmp</code>, <code>puts</code>, gestion des buffers. Compréhension approfondie des pointeurs et de l'arithmétique mémoire.</span>
-                </div>
-                <div class="p-3 border border-secondary border-opacity-10 rounded bg-black bg-opacity-25">
-                    <strong class="text-white d-block mb-1"><i class="bi bi-shield-check text-success me-2"></i>Rigueur & Normes</strong>
-                    <span class="text-muted-custom text-small">Respect strict de la <strong>Norme E89 (The Scrolls)</strong> : conventions de nommage, limitation de lignes par fonction, structure de fichiers imposée. Code propre et maintenable.</span>
-                </div>
-                <div class="p-3 border border-secondary border-opacity-10 rounded bg-black bg-opacity-25">
-                    <strong class="text-white d-block mb-1"><i class="bi bi-memory text-warning me-2"></i>Gestion Mémoire</strong>
-                    <span class="text-muted-custom text-small">Allocation et libération dynamique de la mémoire (malloc/free). Vérification des fuites mémoires avec <strong>Valgrind</strong>.</span>
-                </div>
-              </div>
-            </div>
-
-            <div>
-                <h5 class="fw-bold mb-3 text-white"><i class="bi bi-code-square me-2"></i>Environnement</h5>
-                <span class="badge bg-primary text-white me-2">Langage C</span>
-                <span class="badge bg-secondary text-white me-2">Makefile</span>
-                <span class="badge bg-dark border border-secondary me-2">Linux / Unix</span>
-                <span class="badge bg-success">Git</span>
-            </div>
-          `,
-        },
-
-        // --- NOUVEAU PROJET MAZE ---
-        maze: {
-          title: "Maze Solver - Algorithmique C",
-          image: "img/maze.webp",
-          link: "https://github.com/TON_PSEUDO/TON_REPO_MAZE",
-          description: `
-            <div class="mb-5">
-              <h4 class="text-white h5 mb-3"><i class="bi bi-terminal me-2 text-info"></i>Concept</h4>
-              <p class="text-muted-custom">
-                Développement d'un moteur capable de lire, analyser et résoudre n'importe quel labyrinthe (carte 2D). Le programme doit trouver la sortie (s'il y en a une) et calculer le chemin le plus rapide.
-              </p>
-              <div class="alert alert-dark border-danger d-flex align-items-center" role="alert">
-                <i class="bi bi-exclamation-octagon-fill text-danger me-2"></i>
-                <div>
-                  <strong>Environnement Strict :</strong> 
-                  Développement 100% Terminal Linux (sans IDE type VS Code). Interdiction totale de la LibC standard. J'ai dû recréer mes propres outils.
-                </div>
-              </div>
-            </div>
-
-            <div class="mb-5">
-              <h4 class="text-white h5 mb-3"><i class="bi bi-cpu me-2 text-info"></i>Aspects Techniques</h4>
-              
-              <div class="d-flex flex-column gap-3">
-                <div class="p-3 border border-secondary border-opacity-10 rounded bg-black bg-opacity-25">
-                    <strong class="text-white d-block mb-1"><i class="bi bi-bezier2 text-primary me-2"></i>Algorithmes de Pathfinding</strong>
-                    <span class="text-muted-custom text-small">Implémentation de la règle de la "Main Gauche" (Wall Follower) pour la résolution simple, et d'un algorithme de <strong>Propagation</strong> (Wavefront) pour trouver le chemin optimal.</span>
-                </div>
-
-                <div class="p-3 border border-secondary border-opacity-10 rounded bg-black bg-opacity-25">
-                    <strong class="text-white d-block mb-1"><i class="bi bi-hdd-rack-fill text-warning me-2"></i>Gestion Mémoire Manuelle</strong>
-                    <span class="text-muted-custom text-small">Allocation dynamique (malloc/free) pour parser des cartes de tailles variables. Zéro fuite mémoire tolérée (vérifié via <strong>Valgrind</strong>).</span>
-                </div>
-
-                <div class="p-3 border border-secondary border-opacity-10 rounded bg-black bg-opacity-25">
-                    <strong class="text-white d-block mb-1"><i class="bi bi-file-earmark-code text-success me-2"></i>Norme & Rigueur</strong>
-                    <span class="text-muted-custom text-small">Code soumis à la <strong>Norme E89</strong> : convention de style drastique imposant une clarté absolue, une structure de fichiers spécifique et une limitation des fonctions.</span>
-                </div>
-              </div>
-            </div>
-
-            <div>
-                <h5 class="fw-bold mb-3 text-white"><i class="bi bi-terminal-fill me-2"></i>Stack & Outils</h5>
-                <span class="badge bg-primary text-white me-2">C (No LibC)</span>
-                <span class="badge bg-dark border border-secondary me-2">Linux / Bash</span>
-                <span class="badge bg-secondary text-white me-2">Makefile</span>
-                <span class="badge bg-danger">Valgrind</span>
-            </div>
-          `,
-        },
-
-        pokemon: {
-          title: "Projet API Pokémon",
-          image: "img/site2.webp",
-          link: "#",
-          description: `
-            <div class="mb-5">
-              <h4 class="text-white h5 mb-3"><i class="bi bi-rocket-takeoff me-2 text-primary"></i>Présentation</h4>
-              <p class="text-muted-custom">
-                Application web complète permettant de voir les différents Pokémon via l'API <strong>Tyradex</strong>. En plus d'être un catalogue, c'est un outil de gestion ou il est possible de composer et sauvegarder plusieurs équipes simultanément.
-              </p>
-            </div>
-            
-            <div class="mb-5">
-              <h4 class="text-white h5 mb-3"><i class="bi bi-gear-wide-connected me-2 text-primary"></i>Fonctionnalités</h4>
-              
-              <div class="d-flex flex-column gap-3">
-                <div class="p-3 border border-secondary border-opacity-10 rounded bg-black bg-opacity-25">
-                    <strong class="text-white d-block mb-1"><i class="bi bi-hdd-network text-info me-2"></i>Utilisation d'une API</strong>
-                    <span class="text-muted-custom text-small">Utilisation avancée de <code>fetch</code> et <code>async/await</code> pour récupérer les données. Gestion de la récursivité pour afficher les chaînes d'évolutions complètes.</span>
-                </div>
-
-                <div class="p-3 border border-secondary border-opacity-10 rounded bg-black bg-opacity-25">
-                    <strong class="text-white d-block mb-1"><i class="bi bi-people-fill text-warning me-2"></i>Team Builder Persistant</strong>
-                    <span class="text-muted-custom text-small">Gestion de 4 équipes distinctes. Sauvegarde automatique via le <code>localStorage</code> pour ne jamais perdre ses données.</span>
-                </div>
-                
-                 <div class="p-3 border border-secondary border-opacity-10 rounded bg-black bg-opacity-25">
-                    <strong class="text-white d-block mb-1"><i class="bi bi-funnel-fill text-success me-2"></i>Algorithme de Filtrage</strong>
-                    <span class="text-muted-custom text-small">Système de recherche combiné : filtre par Nom, par Génération et par Type simultanément.</span>
-                </div>
-              </div>
-            </div>
-
-            <div>
-                <h5 class="fw-bold mb-3 text-white"><i class="bi bi-code-slash me-2"></i>Stack Technique</h5>
-                <span class="badge bg-warning text-dark me-2">JavaScript (ES6+)</span>
-                <span class="badge bg-info text-dark me-2">API REST</span>
-                <span class="badge bg-primary me-2">Bootstrap 5</span>
-                <span class="badge bg-secondary">LocalStorage</span>
-            </div>
-          `,
-        },
-        sql: {
-          title: "Base de Données - Gestion Scolaire",
-          image: "img/site3.webp",
-          link: "",
-          description: `
-                  <p class="lead text-body-secondary">Conception complète d'une base de données relationnelle pour un établissement scolaire.</p>
-                  <p>L'objectif était de structurer les données complexes d'une école : élèves, professeurs, matières, notes, absences et emplois du temps.</p>
-                  <hr>
-                  <h5 class="fw-bold text-white"><i class="bi bi-database-fill me-2 text-danger"></i>Travail réalisé</h5>
-                  <ul>
-                      <li><strong>Modélisation :</strong> Création du MCD (Modèle Conceptuel) et MLD (Modèle Logique).</li>
-                      <li><strong>Développement :</strong> Écriture des scripts SQL de création de tables et de contraintes (Clés étrangères).</li>
-                      <li><strong>Administration :</strong> Gestion via DBeaver.</li>
-                  </ul>
-                  <div class="mt-3">
-                      <span class="badge text-bg-sql">SQL</span>
-                      <span class="badge text-bg-outils">DBeaver</span>
-                      <span class="badge text-bg-light text-dark">Merise</span>
-                  </div>
-              `,
-        },
-      };
-
-      function openModal(projectId) {
-        const project = projectsData[projectId];
-        if (!project) return;
-
-        // Remplir les éléments de la modale
-        document.getElementById("modalTitle").textContent = project.title;
-        document.getElementById("modalDescription").innerHTML =
-          project.description;
-
-        // Gestion de l'image
-        const imgElement = document.getElementById("modalImage");
-        if (project.image) {
-          imgElement.src = project.image;
-          imgElement.classList.remove("d-none");
-        } else {
-          imgElement.classList.add("d-none");
-        }
-
-        // Gestion du bouton "Voir le code/site"
-        const linkBtn = document.getElementById("modalLink");
-        if (project.link && project.link !== "") {
-          linkBtn.href = project.link;
-          linkBtn.classList.remove("d-none");
-          // Change le texte si c'est du code
-          if (
-            projectId === "tr" ||
-            projectId === "sql" ||
-            projectId === "maze"
-          ) {
-            linkBtn.innerHTML =
-              '<i class="bi bi-github me-1"></i> Voir le code';
-          } else {
-            linkBtn.innerHTML =
-              '<i class="bi bi-box-arrow-up-right me-1"></i> Voir le site';
-          }
-        } else {
-          linkBtn.classList.add("d-none");
-        }
-
-        // Ouvrir la modale via Bootstrap
-        const myModal = new bootstrap.Modal(
-          document.getElementById("detailModal")
-        );
-        myModal.show();
-      }
-
-      document.addEventListener("DOMContentLoaded", () => {
-        const filterButtons = document.querySelectorAll(
-          "#project-filter-buttons button"
-        );
-        const projectItems = document.querySelectorAll(".project-item");
-
-        filterButtons.forEach((btn) => {
-          btn.addEventListener("click", () => {
-            // Reset active state
-            filterButtons.forEach((b) => {
-              b.classList.remove("active");
-              b.classList.replace("btn-primary", "btn-outline-primary");
-            });
-            // Set active state for clicked button
-            btn.classList.add("active");
-            btn.classList.replace("btn-outline-primary", "btn-primary");
-
-            const filterValue = btn.getAttribute("data-filter");
-
-            projectItems.forEach((item) => {
-              const tags = item.getAttribute("data-tags");
-              if (filterValue === "all" || tags.includes(filterValue)) {
-                item.classList.remove("d-none");
-                // Petit timeout pour l'animation
-                setTimeout(
-                  () => item.classList.add("fade-in-on-scroll", "is-visible"),
-                  10
-                );
-              } else {
-                item.classList.add("d-none");
-                item.classList.remove("fade-in-on-scroll", "is-visible");
-              }
-            });
-          });
-        });
-      });
-    </script>
   </body>
 </html>

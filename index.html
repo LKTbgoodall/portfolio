@@ -1,17 +1,22 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr" data-bs-theme="dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Portfolio de GOODALL Bastien, étudiant à 89 - L’Ecole Deep Tech, présentant mes projets et compétences en développement."
+      content="Portfolio de Bastien Goodall - Développeur Web Fullstack & Architecte Junior."
     />
-    <title>GOODALL Bastien - Accueil</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta property="og:title" content="Bastien Goodall | Développeur" />
+    <meta
+      property="og:description"
+      content="Concevoir des expériences numériques robustes."
+    />
+
+    <title>Bastien Goodall | Developpeur</title>
+
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap"
       rel="stylesheet"
     />
     <link
@@ -30,123 +35,133 @@
     <main>
       <header class="hero text-center">
         <div class="container fade-in-on-scroll">
-          <img
-            src="img/moi.jpg"
-            class="img-fluid mb-3 col-3 rounded-circle border-5 shadow-lg"
-            alt="Photo de Moi"
-          />
-          <h1 class="display-3 fw-bold">GOODALL Bastien</h1>
-          <p class="lead text-body-secondary mb-4">
-            Étudiant à 89 - L’Ecole Deep Tech
+          <div class="hero-img-container mb-4">
+            <img
+              src="img/moi.jpg"
+              class="img-fluid"
+              width="280"
+              height="280"
+              alt="Bastien Goodall"
+            />
+          </div>
+          <h1 class="display-3 fw-bold mb-3">
+            Bastien <span class="text-gradient">Goodall</span>
+          </h1>
+          <p class="lead text-muted mb-4 fs-4">
+            Étudiant & Développeur à
+            <span class="text-white fw-bold">89 - L’École Deep Tech</span>
           </p>
-          <a href="projets.html" class="btn btn-primary btn-lg m-2"
-            >Voir mes projets</a
-          >
-          <a href="a-propos.html" class="btn btn-outline-secondary btn-lg m-2"
-            >En savoir plus</a
-          >
+          <div class="d-flex justify-content-center gap-3">
+            <a href="projets.html" class="btn btn-primary btn-lg shadow-lg">
+              <i class="bi bi-code-slash me-2"></i>Mes Réalisations
+            </a>
+            <a href="contact.html" class="btn btn-outline-light btn-lg">
+              Me Contacter
+            </a>
+          </div>
         </div>
       </header>
 
       <section class="container my-5 py-5 fade-in-on-scroll">
-        <div class="row">
-          <div class="col-lg-8 mx-auto text-center">
-            <h2 class="fw-bold">Bienvenue sur mon portfolio.</h2>
-            <p class="lead text-body-secondary">
-              Je m'appelle Bastien, je suis passionné par l'informatique, la
-              programmation et tout ce qui touche aux ordinateurs en général. Ce
-              site présente mon parcours, mes compétences et les projets sur
-              lesquels j'ai travaillé.
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center">
+            <h2 class="fw-bold mb-4">Apprendre, construire, réfléchir.</h2>
+            <p class="text-muted fs-5">
+              Passionné par l'informatique et le numérique, je suis actuellement
+              en première année de programation. J'aime résoudre des problèmes
+              et apprendre de nouvelles technologies à travers mes projets.
             </p>
           </div>
         </div>
       </section>
 
-      <section class="py-5" style="background-color: var(--bs-body-bg)">
+      <section class="py-5 bg-opacity-50">
         <div class="container">
-          <h2 class="text-center fw-bold mb-5 fade-in-on-scroll">
-            Projets Principaux
-          </h2>
+          <div
+            class="d-flex justify-content-between align-items-end mb-5 fade-in-on-scroll"
+          >
+            <div>
+              <h2 class="fw-bold">Sélection de Projets</h2>
+              <p class="text-muted mb-0">Voici quelques uns de mes projets.</p>
+            </div>
+            <a
+              href="projets.html"
+              class="btn btn-outline-light btn-sm d-none d-md-block"
+              >Tout voir <i class="bi bi-arrow-right ms-1"></i
+            ></a>
+          </div>
+
           <div class="row g-4">
-            <div class="col-md-4 fade-in-on-scroll" style="--delay: 0ms">
-              <div class="card project-card h-100">
-                <img
-                  src="img/site1.webp"
-                  class="card-img-top project-card-img"
-                  alt="Projet 1"
-                />
-                <div class="card-body">
-                  <h5 class="card-title fw-bold">Mon premier vrai projet</h5>
-                  <p class="card-text">
+            <div class="col-md-4 fade-in-on-scroll" style="--delay: 100ms">
+              <div class="card project-card h-100 border-0">
+                <div class="project-img-wrapper">
+                  <img src="img/site1.webp" alt="Outil RH" />
+                </div>
+                <div class="card-body p-4">
+                  <h5 class="fw-bold">Mon premier vrai projet</h5>
+                  <p class="text-muted small mb-3">
                     Mon premier projet concret m'a servi à gagner du temps sur
                     une tâche répétitive sur un jeu (GTA RP). Je m'occupais de
                     gérer des recrutements pour la police où j'étais le
                     directeur. J'ai donc créé un site pour faciliter notre
                     travail.
                   </p>
-                  <a href="projets.html" class="btn btn-sm btn-outline-primary"
-                    >Voir détails</a
-                  >
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4 fade-in-on-scroll" style="--delay: 100ms">
-              <div class="card project-card h-100">
-                <img
-                  src="img/site2.webp"
-                  class="card-img-top project-card-img"
-                  alt="Projet 2"
-                />
-                <div class="card-body">
-                  <h5 class="card-title fw-bold">Projet API Pokémon</h5>
-                  <p class="card-text">
-                    Dans le cadre d'un projet au sein de mon école, j'ai appris
-                    à développer un site en utilisant une API publique. J'ai
-                    choisi de créer un site autour de l'univers Pokémon car
-                    c'est un univers complet et ludique pour cet exercice.
-                  </p>
-                  <a href="projets.html" class="btn btn-sm btn-outline-primary"
-                    >Voir détails</a
-                  >
+                  <div class="d-flex gap-2 flex-wrap">
+                    <span class="badge text-bg-primary">Html/css</span>
+                    <span class="badge text-bg-warning">JavaScript</span>
+                  </div>
                 </div>
               </div>
             </div>
 
             <div class="col-md-4 fade-in-on-scroll" style="--delay: 200ms">
-              <div class="card project-card h-100">
-                <img
-                  src="img/site3.webp"
-                  class="card-img-top project-card-img"
-                  alt="Projet 3"
-                />
-                <div class="card-body">
-                  <h5 class="card-title fw-bold">Projet de Gestion Scolaire</h5>
-                  <p class="card-text">
+              <div class="card project-card h-100 border-0">
+                <div class="project-img-wrapper">
+                  <img src="img/site2.webp" alt="API Project" />
+                </div>
+                <div class="card-body p-4">
+                  <h5 class="fw-bold">Projet API Pokémon</h5>
+                  <p class="text-muted small mb-3">
+                    Dans le cadre d'un projet au sein de mon école, j'ai appris
+                    à développer un site en utilisant une API publique. J'ai
+                    choisi de créer un site autour de l'univers Pokémon car
+                    c'est un univers complet et ludique pour cet exercice.
+                  </p>
+                  <div class="d-flex gap-2 flex-wrap">
+                    <span class="badge text-bg-warning">JavaScript</span>
+                    <span class="badge text-bg-info">API Publique</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 fade-in-on-scroll" style="--delay: 300ms">
+              <div class="card project-card h-100 border-0">
+                <div class="project-img-wrapper">
+                  <img src="img/site3.webp" alt="SQL" />
+                </div>
+                <div class="card-body p-4">
+                  <h5 class="fw-bold">Projet de Gestion Scolaire</h5>
+                  <p class="text-muted small mb-3">
                     Ce projet est une base de données complète pour un Système
                     de Gestion Scolaire. Il a été conçu pour structurer toutes
                     les données essentielles d'un établissement (élèves,
                     enseignants, emplois du temps). L'objectif était de
                     s'entraîner au SQL.
                   </p>
-                  <a href="projets.html" class="btn btn-sm btn-outline-primary"
-                    >Voir détails</a
-                  >
+                  <div class="d-flex gap-2 flex-wrap">
+                    <span class="badge text-bg-sql">SQL</span>
+                    <span class="badge text-bg-secondary">DBeaver</span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="text-center mt-5 fade-in-on-scroll">
-            <a href="projets.html" class="btn btn-primary btn-lg"
-              >Voir tous mes projets</a
-            >
           </div>
         </div>
       </section>
     </main>
 
     <div id="footer-placeholder"></div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/script.js"></script>
   </body>
