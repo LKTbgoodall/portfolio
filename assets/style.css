@@ -318,3 +318,95 @@ h6 {
 .hero img:hover {
   transform: rotate(0deg) scale(1.02);
 }
+
+/* --- CARTES DISPONIBILITÉ (New) --- */
+
+/* Décalage vers le haut pour chevaucher légèrement le Hero */
+.mt-n5 {
+  margin-top: -3rem;
+}
+
+/* Style spécifique des cartes */
+.availability-card {
+  background: rgba(
+    15,
+    23,
+    42,
+    0.6
+  ) !important; /* Plus sombre pour le contraste */
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.availability-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(99, 102, 241, 0.5) !important;
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.15);
+}
+
+/* Effet de lueur interne pour la carte "Stage" (Urgent) */
+.availability-card .glow-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at top right,
+    rgba(239, 68, 68, 0.15),
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+/* Indicateurs pulsants (Le point qui clignote) */
+.status-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+}
+
+/* Rouge pour Urgent/Stage */
+.pulse-red {
+  background-color: #ef4444;
+  box-shadow: 0 0 0 rgba(239, 68, 68, 0.7);
+  animation: pulse-red 2s infinite;
+}
+
+/* Bleu pour Futur/Alternance */
+.pulse-blue {
+  background-color: #3b82f6;
+  box-shadow: 0 0 0 rgba(59, 130, 246, 0.7);
+  animation: pulse-blue 2s infinite;
+}
+
+@keyframes pulse-red {
+  0% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+  }
+}
+
+@keyframes pulse-blue {
+  0% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+  }
+}
