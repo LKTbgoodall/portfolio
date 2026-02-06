@@ -1,13 +1,10 @@
-/* --- DONNÉES DES PROJETS (Centralisées) --- */
 const projectsData = {
   gta: {
     title: "Automatisation Recrutement (GTA RP)",
     image: "img/site1.webp",
-    /* LE SITE (Démonstration) */
     link: "https://lktbgoodall.github.io/projet_reponse_formulaire/",
-    /* LE CODE (GitHub) - J'ai ajouté cette ligne */
     repo: "https://github.com/LKTbgoodall/projet_reponse_formulaire",
-    isCode: false, // On met false car le lien principal est le site
+    isCode: false,
     description: `
         <p class="lead text-white">Un outil web conçu pour faire gagner du temps aux recruteurs d'un serveur de jeu (+500 joueurs) en automatisant le tri des candidatures.</p>
         <hr class="border-secondary opacity-50">
@@ -248,7 +245,6 @@ const projectsData = {
   },
 };
 
-/* --- SYSTÈME DE CHARGEMENT --- */
 async function loadComponent(url, elementId) {
   const element = document.getElementById(elementId);
   if (!element) return;
@@ -272,13 +268,10 @@ function handleActiveNav() {
   });
 }
 
-/* --- MODAL LOGIC (MISE À JOUR POUR GÉRER 2 BOUTONS) --- */
-/* --- MODAL LOGIC (Finale : 2 boutons + Gestion des liens grisés) --- */
 function openModal(projectId) {
   const project = projectsData[projectId];
   if (!project) return;
 
-  // 1. Remplir Titre, Description et Image
   document.getElementById("modalTitle").textContent = project.title;
   document.getElementById("modalDescription").innerHTML = project.description;
 
@@ -290,10 +283,8 @@ function openModal(projectId) {
     img.classList.add("d-none");
   }
 
-  // --- GESTION DES BOUTONS ---
   const btnSite = document.getElementById("modalLink");
 
-  // 2. Création dynamique du bouton "Code" (GitHub) s'il n'existe pas encore
   let btnRepo = document.getElementById("modalRepoLink");
   if (!btnRepo) {
     btnRepo = document.createElement("a");
@@ -301,11 +292,9 @@ function openModal(projectId) {
     btnRepo.className = "btn btn-outline-light rounded-pill px-4 me-2";
     btnRepo.target = "_blank";
     btnRepo.innerHTML = '<i class="bi bi-github me-2"></i>Voir le Code';
-    // On l'insère juste avant le bouton principal
     btnSite.parentNode.insertBefore(btnRepo, btnSite);
   }
 
-  // CAS A : Afficher le bouton "Code" secondaire ? (Si propriété 'repo' existe)
   if (project.repo) {
     btnRepo.href = project.repo;
     btnRepo.classList.remove("d-none");
@@ -313,19 +302,15 @@ function openModal(projectId) {
     btnRepo.classList.add("d-none");
   }
 
-  // CAS B : Configurer le bouton Principal (Site ou Projet)
   if (project.link) {
-    // On nettoie le bouton (on enlève le gris/désactivé des précédents clics)
     btnSite.className = "btn rounded-pill px-4";
     btnSite.classList.remove("d-none", "disabled", "btn-secondary");
     btnSite.removeAttribute("aria-disabled");
 
-    // --- LOGIQUE DE GRISAGE ---
     if (project.link === "#") {
-      // Si le lien est # -> On grise
       btnSite.classList.add("btn-secondary", "disabled");
       btnSite.setAttribute("aria-disabled", "true");
-      btnSite.removeAttribute("href"); // On enlève le lien pour pas cliquer
+      btnSite.removeAttribute("href");
       btnSite.innerHTML = '<i class="bi bi-cone-striped me-2"></i>En cours';
     } else {
       btnSite.href = project.link;
@@ -346,14 +331,12 @@ function openModal(projectId) {
   new bootstrap.Modal(document.getElementById("detailModal")).show();
 }
 
-/* --- INIT --- */
 document.addEventListener("DOMContentLoaded", async () => {
   await Promise.all([
     loadComponent("nav.html", "nav-placeholder"),
     loadComponent("footer.html", "footer-placeholder"),
   ]);
 
-  // Observer pour animations fluides
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -369,11 +352,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     .querySelectorAll(".fade-in-on-scroll")
     .forEach((el) => observer.observe(el));
 
-  // Init filtres si présents
   initFilters();
 });
 
-/* --- FILTRES PROJETS --- */
 function initFilters() {
   const buttons = document.querySelectorAll("#project-filter-buttons button");
   const items = document.querySelectorAll(".project-item");
@@ -382,7 +363,6 @@ function initFilters() {
 
   buttons.forEach((btn) => {
     btn.addEventListener("click", () => {
-      // Gestion visuelle des boutons
       buttons.forEach((b) => {
         b.classList.remove("active", "btn-light");
         b.classList.add("btn-outline-light");
@@ -392,17 +372,14 @@ function initFilters() {
 
       const filter = btn.dataset.filter;
 
-      // Gestion de l'affichage des projets
       items.forEach((item) => {
         const tags = item.dataset.tags || "";
         const shouldShow = filter === "all" || tags.includes(filter);
 
         if (shouldShow) {
-          // AFFICHER (instantané)
           item.classList.remove("d-none");
           item.classList.add("is-visible");
         } else {
-          // CACHER (instantané)
           item.classList.add("d-none");
           item.classList.remove("is-visible");
         }
