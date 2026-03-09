@@ -119,6 +119,45 @@ const projectsData = {
     `,
   },
 
+  dprintf: {
+    title: "Recréation de dprintf",
+    image: "img/dprintf_project.png",
+    link: "https://github.com/LKTbgoodall/2025_printf",
+    isCode: true,
+    description: `
+        <p class="lead text-white">Projet d'implémentation de la fonction dprintf en langage C, permettant d'écrire des chaînes formatées directement dans un descripteur de fichier.</p>
+        <hr class="border-secondary opacity-50">
+        
+        <div class="row g-4 mb-4">
+            <div class="col-md-6">
+                <div class="p-3 rounded bg-dark bg-opacity-50 border border-secondary border-opacity-25 h-100">
+                    <h6 class="text-accent fw-bold"><i class="bi bi-gear-wide-connected me-2"></i>Fonctionnalités</h6>
+                    <ul class="list-unstyled text-muted small mb-0 mt-2">
+                        <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i><strong>Formats :</strong> Support des indicateurs %c, %s, %d, %p, %x, %o, et %b (binaire).</li>
+                        <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i><strong>Modificateurs :</strong> Gestion du flag + pour forcer l'affichage du signe sur les nombres.</li>
+                        <li><i class="bi bi-check2 text-primary me-2"></i><strong>Variadique :</strong> Utilisation avancée des macros va_list, va_start et va_arg.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-3 rounded bg-dark bg-opacity-50 border border-secondary border-opacity-25 h-100">
+                    <h6 class="text-accent fw-bold"><i class="bi bi-shield-check me-2"></i>Fiabilité & Tests</h6>
+                    <p class="small text-muted mb-0 mt-2">
+                        Création d'une suite exhaustive de <strong>tests unitaires</strong> avec la bibliothèque Criterion pour valider chaque format et s'assurer de la stabilité du programme lors des conversions de bases.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <h6 class="fw-bold text-white mb-3">Stack Technique</h6>
+        <div>
+            <span class="badge text-bg-primary me-2">Langage C</span>
+            <span class="badge text-bg-danger me-2">Criterion</span>
+            <span class="badge text-bg-secondary me-2">Makefile</span>
+        </div>
+    `,
+  },
+
   pokemon: {
     title: "Pokédex & Team Builder",
     image: "img/site2.webp",
