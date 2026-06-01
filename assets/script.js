@@ -282,6 +282,46 @@ const projectsData = {
         </div>
       `,
   },
+  noose: {
+    title: "Plateforme Interne N.O.O.S.E.",
+    image: "img/noose.png",
+    link: "https://noose-web.vercel.app/index.html",
+    repo: "https://github.com/LKTbgoodall/Noose_web",
+    isCode: false,
+    description: `
+        <p class="lead text-white">Un outil interne de dispatch multi-pages développé pour un équivalent du SWAT sur un serveur GTA RP, permettant de centraliser et gérer toutes les opérations de l'unité.</p>
+        <hr class="border-secondary opacity-50">
+
+        <div class="row g-4 mb-4">
+            <div class="col-md-6">
+                <div class="p-3 rounded bg-dark bg-opacity-50 border border-secondary border-opacity-25 h-100">
+                    <h6 class="text-accent fw-bold"><i class="bi bi-layout-text-window me-2"></i>Les 3 modules</h6>
+                    <ul class="list-unstyled text-muted small mb-0 mt-2">
+                        <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i><strong>MDT Dispatch :</strong> Gestion et suivi des patrouilles en temps réel.</li>
+                        <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i><strong>Accords Véhicules :</strong> Attribution des véhicules selon le grade, avec héritage cumulatif.</li>
+                        <li><i class="bi bi-check2 text-primary me-2"></i><strong>Planning :</strong> Grille hebdomadaire pour organiser les disponibilités des membres.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-3 rounded bg-dark bg-opacity-50 border border-secondary border-opacity-25 h-100">
+                    <h6 class="text-accent fw-bold"><i class="bi bi-code-square me-2"></i>Challenge Technique</h6>
+                    <p class="small text-muted mb-0 mt-2">
+                        Connexion complète à <strong>Supabase (PostgreSQL)</strong> pour toutes les pages. Le défi principal sur le planning était la gestion d'un <strong>bug de rendu dual-event</strong> résolu par une réécriture architecturale complète (suppression des rowspans).
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <h6 class="fw-bold text-white mb-3">Stack Technique</h6>
+        <div>
+            <span class="badge text-bg-warning me-2">JavaScript</span>
+            <span class="badge text-bg-primary me-2">HTML/CSS</span>
+            <span class="badge text-bg-success me-2">Supabase</span>
+            <span class="badge text-bg-secondary me-2">PostgreSQL</span>
+        </div>
+    `,
+  },
 };
 
 async function loadComponent(url, elementId) {
