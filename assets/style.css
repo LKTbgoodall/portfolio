@@ -263,6 +263,21 @@ h6 {
   font-weight: 700;
 }
 
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(99, 102, 241, 0.4) 50%, transparent 100%);
+  margin: 5rem auto;
+  width: 70%;
+  max-width: 800px;
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
+}
+
+.bg-alt {
+  background: linear-gradient(180deg, rgba(30, 41, 59, 0.4) 0%, transparent 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+}
+
 .fade-in-on-scroll {
   opacity: 0;
   transform: translateY(20px);
