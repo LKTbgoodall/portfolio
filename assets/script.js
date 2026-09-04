@@ -91,6 +91,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     const res = await fetch("assets/projects.json");
     if (res.ok) {
       projectsData = await res.json();
+      
+      const urlParams = new URLSearchParams(window.location.search);
+      const projectId = urlParams.get('project');
+      if (projectId && projectsData[projectId]) {
+        setTimeout(() => openModal(projectId), 100);
+      }
     }
   } catch (error) {
     console.error("Erreur lors du chargement de projects.json:", error);
