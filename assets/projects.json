@@ -1,4 +1,11 @@
 {
+  "sunesis": {
+    "title": "Sunesis Academy (Stage)",
+    "image": "img/sunesis.webp",
+    "link": "#",
+    "isCode": true,
+    "description": "\n        <p class=\"lead text-white\">En attente des détails du projet...</p>\n      "
+  },
   "gta": {
     "title": "Automatisation Recrutement (GTA RP)",
     "image": "img/site1.webp",

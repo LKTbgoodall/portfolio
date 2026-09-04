@@ -63,12 +63,44 @@
         <button type="button" class="btn btn-outline-light" data-filter="perso">
           Personnel
         </button>
+        <button type="button" class="btn btn-outline-light" data-filter="pro">
+          Professionnel
+        </button>
         <button type="button" class="btn btn-outline-light" data-filter="sco">
           Scolaire
         </button>
       </div>
 
       <div class="row g-4" id="project-list">
+        <div
+          class="col-lg-4 col-md-6 fade-in-on-scroll project-item"
+          data-tags="pro"
+        >
+          <div
+            class="card project-card h-100 border-0 pointer-event"
+            onclick="openModal('sunesis')"
+            style="cursor: pointer"
+          >
+            <div class="project-img-wrapper">
+              <img src="img/sunesis.webp" alt="Projet Sunesis" onerror="this.src='img/placeholder.webp'" />
+              <div class="position-absolute top-0 end-0 m-3">
+                <span class="badge bg-warning text-dark border border-white"
+                  >Professionnel</span
+                >
+              </div>
+            </div>
+            <div class="card-body p-4 d-flex flex-column">
+              <h5 class="fw-bold mb-2">Sunesis Academy (Stage)</h5>
+              <p class="text-muted small mb-4 flex-grow-1">
+                Description du projet à venir...
+              </p>
+              <div>
+                <span class="badge text-bg-info">Fullstack</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div
           class="col-lg-4 col-md-6 fade-in-on-scroll project-item"
           data-tags="html-css perso"
